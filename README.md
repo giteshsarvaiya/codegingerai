@@ -42,9 +42,9 @@ CodeGingerAI is an intelligent GitHub bot that automatically reviews pull reques
    SHAPES_API_KEY=your_shapes_api_key_here
    SHAPES_BASE_URL=https://api.shapes.inc/v1
    SHAPES_MODEL=shapesinc/codegingerai
-   GITHUB_APP_ID=your_app_id
-   GITHUB_WEBHOOK_SECRET=your_webhook_secret
-   GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----\nYOUR-PRIVATE-KEY-HERE\n-----END RSA PRIVATE KEY-----"
+   APP_ID=your_app_id
+   WEBHOOK_SECRET=your_webhook_secret
+   PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----\nYOUR-PRIVATE-KEY-HERE\n-----END RSA PRIVATE KEY-----"
    ```
 
 4. Set up GitHub App credentials:
@@ -89,6 +89,9 @@ The bot can be configured through environment variables:
 | `SHAPES_API_KEY` | Your Shapes API key | Required |
 | `SHAPES_BASE_URL` | Shapes API base URL | https://api.shapes.inc/v1 |
 | `SHAPES_MODEL` | Model to use for reviews | shapesinc/codegingerai |
+| `APP_ID` | your github app id
+| `PRIVATE_KEY` | your app's rsa key
+| `WEBHOOK_SECRET` | your server's webhook secret
 
 ## Development 🛠️
 
