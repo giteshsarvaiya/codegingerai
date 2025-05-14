@@ -41,13 +41,19 @@ CodeGingerAI is an intelligent GitHub bot that automatically reviews pull reques
 4. Set up GitHub App credentials:
    - Create a new GitHub App in your organization
    - Set the webhook URL to your deployment URL
-   - Download the private key and save it as `private-key.pem`
+   - Generate an RSA private key:
+     ```bash
+     # Generate a new RSA private key
+     openssl genrsa -out private-key.pem 2048
+     ```
+   - Save the private key as `private-key.pem` in the root directory
    - Add the following to your `.env` file:
      ```env
      GITHUB_APP_ID=your_app_id
      GITHUB_CLIENT_ID=your_client_id
      GITHUB_CLIENT_SECRET=your_client_secret
      GITHUB_WEBHOOK_SECRET=your_webhook_secret
+     GITHUB_PRIVATE_KEY_PATH=./private-key.pem  # Path to your RSA private key
      ```
 
 5. Start the bot:
@@ -82,6 +88,7 @@ The bot can be configured through environment variables:
 | `SHAPES_API_KEY` | Your Shapes API key | Required |
 | `SHAPES_BASE_URL` | Shapes API base URL | https://api.shapes.inc/v1 |
 | `SHAPES_MODEL` | Model to use for reviews | shapesinc/codegingerai |
+| `GITHUB_PRIVATE_KEY_PATH` | Path to RSA private key | ./private-key.pem |
 
 ## Development 🛠️
 
@@ -95,6 +102,7 @@ codegingerai/
 │   │   └── shapesService.js  # Shapes API service
 │   └── index.js             # Main application file
 ├── .env                     # Environment variables
+├── private-key.pem         # RSA private key for GitHub App
 └── package.json            # Project configuration
 ```
 
