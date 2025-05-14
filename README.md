@@ -31,11 +31,20 @@ CodeGingerAI is an intelligent GitHub bot that automatically reviews pull reques
    npm install
    ```
 
-3. Create a `.env` file in the root directory with the following variables:
+3. Set up environment variables:
+   ```bash
+   # Copy the example environment file
+   cp .env.example .env
+   ```
+   
+   Then edit the `.env` file with your credentials:
    ```env
    SHAPES_API_KEY=your_shapes_api_key_here
    SHAPES_BASE_URL=https://api.shapes.inc/v1
    SHAPES_MODEL=shapesinc/codegingerai
+   GITHUB_APP_ID=your_app_id
+   GITHUB_WEBHOOK_SECRET=your_webhook_secret
+   GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----\nYOUR-PRIVATE-KEY-HERE\n-----END RSA PRIVATE KEY-----"
    ```
 
 4. Set up GitHub App credentials:
@@ -46,15 +55,7 @@ CodeGingerAI is an intelligent GitHub bot that automatically reviews pull reques
      # Generate a new RSA private key
      openssl genrsa -out private-key.pem 2048
      ```
-   - Save the private key as `private-key.pem` in the root directory
-   - Add the following to your `.env` file:
-     ```env
-     GITHUB_APP_ID=your_app_id
-     GITHUB_CLIENT_ID=your_client_id
-     GITHUB_CLIENT_SECRET=your_client_secret
-     GITHUB_WEBHOOK_SECRET=your_webhook_secret
-     GITHUB_PRIVATE_KEY_PATH=./private-key.pem  # Path to your RSA private key
-     ```
+   - Copy the contents of the private key file into the GIHUB_PRIVATE_KEY environment variable
 
 5. Start the bot:
    ```bash
@@ -88,7 +89,6 @@ The bot can be configured through environment variables:
 | `SHAPES_API_KEY` | Your Shapes API key | Required |
 | `SHAPES_BASE_URL` | Shapes API base URL | https://api.shapes.inc/v1 |
 | `SHAPES_MODEL` | Model to use for reviews | shapesinc/codegingerai |
-| `GITHUB_PRIVATE_KEY_PATH` | Path to RSA private key | ./private-key.pem |
 
 ## Development 🛠️
 
@@ -98,11 +98,9 @@ codegingerai/
 ├── src/
 │   ├── config/
 │   │   └── config.js         # Configuration and environment variables
-│   ├── services/
 │   │   └── shapesService.js  # Shapes API service
 │   └── index.js             # Main application file
 ├── .env                     # Environment variables
-├── private-key.pem         # RSA private key for GitHub App
 └── package.json            # Project configuration
 ```
 
@@ -135,4 +133,10 @@ If you encounter any issues or have questions:
 ## Acknowledgments 🙏
 
 - [Probot](https://probot.github.io/) for the GitHub App framework
-- [Shapes API](https://shapes.inc) for the AI review capabilities 
+- [Shapes API](https://shapes.inc) for the AI review capabilities
+
+## Contact Me 📬
+
+- 📧 Email: [gitesh.sarvaiya28@gmail.com](mailto:gitesh.sarvaiya28@gmail.com)
+- 🐦 X (Twitter): [@SarvaiyaGitesh](https://x.com/SarvaiyaGitesh)
+- 💻 GitHub: [@giteshsarvaiya](https://github.com/giteshsarvaiya)
