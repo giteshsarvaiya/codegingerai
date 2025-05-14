@@ -1,6 +1,6 @@
 // shapesService.js
 import OpenAI from 'openai';
-import { shapesApiKey, shapesBaseUrl } from './config.js';
+import { shapesApiKey, shapesBaseUrl } from '../config/config.js';
 import https from 'https';
 
 const MAX_RETRIES = 3;
@@ -109,4 +109,4 @@ export async function getReviewFromShapes(diffContent) {
   // If we get here, all retries failed
   const errorMessage = lastError?.response?.data?.error?.message || lastError?.message || 'Unknown error';
   throw new Error(`Failed to get review from Shapes API after ${MAX_RETRIES} attempts. Last error: ${errorMessage}`);
-}
+} 

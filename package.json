@@ -1,11 +1,11 @@
 {
   "name": "codegingerai",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "probot run ./index.js"
+    "start": "probot run ./src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,6 @@
   "description": "",
   "dependencies": {
     "dotenv": "^16.5.0",
-    "node-fetch": "^3.3.2",
     "openai": "^4.98.0",
     "probot": "^13.4.5"
   }

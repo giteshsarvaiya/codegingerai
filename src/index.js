@@ -1,4 +1,4 @@
-import { getReviewFromShapes } from './shapesService.js';
+import { getReviewFromShapes } from './services/shapesService.js';
 
 /**
  * Main Probot app to automate PR review and responses.
@@ -139,4 +139,4 @@ ${allComments.data.map(c => `- ${c.user.login}: ${c.body}`).join("\n")}
       }
     }
   });
-};
+}; 
